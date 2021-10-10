@@ -72,14 +72,15 @@ export default class ExercisesList extends Component {
       loadingActivity
     } = this.state
     return (
-      <div>
+      <div class="container activity" style={{borderRadius: '15px', backgroundColor: '#c5f8fc'}}>
         <h3>Activités</h3>
+        
         <table className="table">
           <thead className="thead-light">
             <tr>
               <th>Nom d'utilisateur</th>
               <th>Description</th>
-              <th>Durée</th>
+              <th>Durée (min)</th>
               <th>Date</th>
               <th>Activités</th>
             </tr>

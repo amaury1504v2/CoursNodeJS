@@ -4,6 +4,7 @@ import Exercise from './Components/exercise'
 import User from './Components/user'
 import SeConnecter from './Components/seconnecter'
 import EditExercise from './Components/edit-exercise'
+import Three from "./Components/three";
 
 import './App.css';
 import axios from "axios";
@@ -16,6 +17,7 @@ import {
 } from "react-router-dom";
 
 function App() {
+  
 
   const [isLoading, setIsLoading] = useState(false)
 
@@ -126,8 +128,8 @@ function App() {
     <div className="App">
       <Router>
       <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">Activités</a>
+      <nav className="navbar navbar-expand-lg navbar-light bg-danger">
+        <a className="navbar-brand" href="#" style={{marginLeft: '15px'}}>Like minded</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -139,29 +141,37 @@ function App() {
             <li className="nav-item">
               <Link to="/exercise" className="nav-link">Créer son exercice</Link>
             </li>
+            <li className="nav-item">
+              <Link to="/three" className="nav-link">Three.js</Link>
+            </li>
           </ul>
         </div>
       </nav>
 
+      <br/>
+
+      
+
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
             <div className="container">
-            <Switch>
-              <Route path="/exercise">
-                <Exercise />
-              </Route>
-              <Route path="/user">
-                <User />
-              </Route>
-              <Route path="/edite/:id">
-                <EditExercise />
-              </Route>
-              <Route path="/">
-                <Home email={email} password={password} resetAccount={resetAccount}/>
-              </Route>
-              
-
-            </Switch>
+              <Switch>
+                <Route path="/exercise">
+                  <Exercise />
+                </Route>
+                <Route path="/user">
+                  <User />
+                </Route>
+                <Route path="/edite/:id">
+                  <EditExercise />
+                </Route>
+                <Route path="/">
+                  <Home email={email} password={password} resetAccount={resetAccount}/>
+                </Route>
+                <Route path="/three">
+                  <Three />
+                </Route>
+              </Switch>
             </div>
         
       </div>

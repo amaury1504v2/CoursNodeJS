@@ -8,7 +8,6 @@ console.log('home')
 
     return (
         <div>
-            <h2>Home</h2>
             <ExercisesList />
             <Logout email={props.email} password={props.password} resetAccount={props.resetAccount}/>
         </div>
