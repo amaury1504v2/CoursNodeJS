@@ -1,6 +1,6 @@
 # Cours Node JS  
   
-Equipe :  
+Groupe :  
 Amaury GIMONNET  
 Aram TOSBATH  
   
