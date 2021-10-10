@@ -8,7 +8,7 @@ Aram TOSBATH
   
 - Ouvrir la console à la racine du projet :  
 Taper "npm install" puis "nodemon"  
-- Ouvrir une autre fenêtre du terminal se placer dans le dossier "front" :  
+- Ouvrir une autre fenêtre du terminal et se placer dans le dossier "front" :  
 Taper "npm install" puis "npm start"  
   
 Se connecter en créant un compte ou avec les identifiants suivant :  
