@@ -11,9 +11,24 @@ export default class Three extends Component {
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );
     var geometry = new THREE.SphereBufferGeometry( .5, 64, 64 );
-    var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    //var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    const textureLoader = new THREE.TextureLoader()
+
+    const normalTexture = textureLoader.load('/textures/golf.png')
+    var material = new THREE.MeshStandardMaterial()
+    material.metalness = 0.7
+    material.roughness = 0.2
+    material.normalmap = normalTexture
     var cube = new THREE.Mesh( geometry, material );
     scene.add( cube );
+    // White directional light at half intensity shining from the top.
+    const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+    scene.add( directionalLight );
+
+    const light = new THREE.PointLight( 0xff0000, 1, 100 );
+    light.position.set( 50, 0, 50 );
+    scene.add( light );
+
     camera.position.z = 5;
     var animate = function () {
       requestAnimationFrame( animate );
