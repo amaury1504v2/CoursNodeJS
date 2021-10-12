@@ -4,7 +4,7 @@ import Exercise from './Components/exercise'
 import User from './Components/user'
 import SeConnecter from './Components/seconnecter'
 import EditExercise from './Components/edit-exercise'
-import Three from "./Components/three";
+import Three from './Components/three'
 
 import './App.css';
 import axios from "axios";

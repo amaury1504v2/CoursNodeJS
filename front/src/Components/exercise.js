@@ -142,7 +142,7 @@ export default class Exercise extends Component {
         </div>
 
         <div className="form-group">
-          <input type="submit" value="Créer son rapport d'activité" className="btn btn-primary" />
+          <input type="submit" value="Créer son rapport d'activité" className="btn btn-primary my-3" />
         </div>
       </form>
     </div>
