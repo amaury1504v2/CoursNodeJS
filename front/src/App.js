@@ -72,15 +72,16 @@ function App() {
 
   if(logged===false) {
     return(
-      <div className="App container">
-      {logged ? <p>Connecté !</p>: <p>Pas connecté</p>}     
-
-      <h1>Exercices</h1>
+      <div className="App container" style={{width:'50%', marginTop: '5em'}}>
+      {logged ? <h2>Connecté !</h2>: <h2>Pas connecté</h2>}
 
       <br/>
 
       <Router>
         <Link to="/seconnecter">Se Connecter</Link>
+
+        <br/>
+        <br/>
 
         <Switch>
           <Route path="/seconnecter">
@@ -88,8 +89,8 @@ function App() {
           </Route>
         </Switch>
       
-      <br/>
-      <br/>
+        <br/>
+        <br/>
       </Router>
       
 
@@ -128,29 +129,27 @@ function App() {
     <div className="App">
       <Router>
       <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-danger">
-        <a className="navbar-brand" href="#" style={{marginLeft: '15px'}}>Like minded</a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link to="/" className="nav-link">Liste d'exercices</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/exercise" className="nav-link">Créer son exercice</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/three" className="nav-link">Three.js</Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
+        <nav className="navbar navbar-expand-lg navbar-light bg-danger">
+          <a className="navbar-brand" href="/" style={{marginLeft: '15px'}}>Like minded</a>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link to="/" className="nav-link">Liste d'exercices</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/exercise" className="nav-link">Créer son exercice</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/three" className="nav-link">Three.js</Link>
+              </li>
+            </ul>
+          </div>
+        </nav>
 
-      <br/>
-
-      
+        <br/>
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
@@ -175,6 +174,7 @@ function App() {
             </div>
         
       </div>
+      
     </Router>
     </div>
   );

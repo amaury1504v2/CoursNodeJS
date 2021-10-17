@@ -40,7 +40,7 @@ export default class Exercise extends Component {
       .catch((error) => {
         console.log(error);
       })
-      console.log('message à la con')
+      console.log('message de test')
       console.log(this.state.users)
   }
 
