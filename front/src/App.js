@@ -16,6 +16,10 @@ import {
   Link
 } from "react-router-dom";
 
+import { Canvas } from "react-three-fiber";
+import { OrbitControls, Stars } from "@react-three/drei";
+import { Physics, usePlane, useBox } from "@react-three/cannon";
+
 function App() {
   
 
@@ -70,51 +74,69 @@ function App() {
     })
   }
 
+  function Box() {
+    const [ref, api] = useBox(() => ({ mass: 1, position: [0, 2, 0] }));
+    return (
+      <mesh
+        onClick={() => {
+          api.velocity.set(0, 2, 0);
+        }}
+        ref={ref}
+        position={[0, 2, 0]}
+      >
+        <boxBufferGeometry attach="geometry" />
+        <meshLambertMaterial attach="material" color="hotpink" />
+      </mesh>
+    );
+  }
+  
+  function Plane() {
+    const [ref] = usePlane(() => ({
+      rotation: [-Math.PI / 2, 0, 0],
+    }));
+    return (
+      <mesh ref={ref} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeBufferGeometry attach="geometry" args={[100, 100]} />
+        <meshLambertMaterial attach="material" color="lightblue" />
+      </mesh>
+    );
+  }
+
   if(logged===false) {
     return(
-      <div className="App container" style={{width:'50%', marginTop: '5em'}}>
-      {logged ? <h2>Connecté !</h2>: <h2>Pas connecté</h2>}
+      <div className="App container" style={{width:'30%', marginTop: '5em'}}>
+        {logged ? <h2 className="text-info">Connecté !</h2>: <h2 className="text-danger">Pas connecté</h2>}
 
-      <br/>
+        <br/>
 
-      <Router>
-        <Link to="/seconnecter">Se Connecter</Link>
+        <SeConnecter changeEmail={changeEmail} changePassword={changePassword} submit={submit}/>
 
         <br/>
         <br/>
 
-        <Switch>
-          <Route path="/seconnecter">
-            <SeConnecter changeEmail={changeEmail} changePassword={changePassword} submit={submit}/>
-          </Route>
-        </Switch>
+        <div className="border rounded p-3">
+          {/* Créer son compte */}
+          <h2>Créer son compte</h2>
+          <div className="input-group flex-nowrap">
+            <span className="input-group-text" id="addon-wrapping">@</span>
+            <input type="text" className="form-control" placeholder="Email" aria-label="Email" aria-describedby="addon-wrapping" onChange={changeEmail}/>
+          </div>
+          <br/>
+          <div className="input-group flex-nowrap">
+            <span className="input-group-text" id="addon-wrapping">@</span>
+            <input type="text" className="form-control" placeholder="Name" aria-label="Name" aria-describedby="addon-wrapping" onChange={changeName}/>
+          </div>
+          <br/>
+          <div className="input-group flex-nowrap">
+            <span className="input-group-text" id="addon-wrapping">...</span>
+            <input type="password" className="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping" onChange={changePassword}/>
+          </div>
+          <br/>
+          <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={create}>Créer son compte</button>
+        </div>
+
+      </div>
       
-        <br/>
-        <br/>
-      </Router>
-      
-
-      {/* Créer son compte */}
-      <h2>Créer son compte</h2>
-      <div className="input-group flex-nowrap">
-        <span className="input-group-text" id="addon-wrapping">@</span>
-        <input type="text" className="form-control" placeholder="Email" aria-label="Email" aria-describedby="addon-wrapping" onChange={changeEmail}/>
-      </div>
-      <br/>
-      <div className="input-group flex-nowrap">
-        <span className="input-group-text" id="addon-wrapping">@</span>
-        <input type="text" className="form-control" placeholder="Name" aria-label="Name" aria-describedby="addon-wrapping" onChange={changeName}/>
-      </div>
-      <br/>
-      <div className="input-group flex-nowrap">
-        <span className="input-group-text" id="addon-wrapping">...</span>
-        <input type="password" className="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping" onChange={changePassword}/>
-      </div>
-      <br/>
-      <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={create}>Créer son compte</button>
-    </div>
-
-
     )
   
   } else if(isLoading) {
@@ -129,8 +151,8 @@ function App() {
     <div className="App">
       <Router>
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-danger">
-          <a className="navbar-brand" href="/" style={{marginLeft: '15px'}}>Like minded</a>
+        <nav className="navbar navbar-expand-lg navbar-light bg-info">
+          <a className="navbar-brand" href="/" style={{marginLeft: '15px'}}>NodeJS</a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -175,6 +197,17 @@ function App() {
         
       </div>
       
+      <Canvas>
+        <OrbitControls />
+        <Stars />
+        <ambientLight intensity={0.5} />
+        <spotLight position={[10, 15, 10]} angle={0.3} />
+        <Physics>
+          <Box />
+          <Plane />
+        </Physics>
+      </Canvas>
+
     </Router>
     </div>
   );

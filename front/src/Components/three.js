@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
+//import ReactDOM from "react-dom";
 import * as THREE from "three";
 
 export default class Three extends Component {
@@ -48,5 +48,3 @@ export default class Three extends Component {
     )
   }
 }
-const rootElement = document.getElementById("root");
-ReactDOM.render(<Three />, rootElement);

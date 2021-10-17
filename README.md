@@ -11,7 +11,8 @@ Taper "npm install" puis "nodemon"
 - Ouvrir une autre fenêtre du terminal et se placer dans le dossier "front" :  
 Taper "npm install" puis "npm start"  
   
-Se connecter en créant un compte ou avec les identifiants suivant :  
+Se connecter en créant un compte, ou en utilisant les identifiants suivant :  
   
 Email: b  
 Mot de passe: b  
+

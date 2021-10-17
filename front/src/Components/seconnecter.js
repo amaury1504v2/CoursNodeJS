@@ -2,7 +2,7 @@ import React from 'react'
 
 function seconnecter(props) {
     return (
-        <div>
+        <div className="border rounded p-3">
             {/* S'identifier */}
             <h2>S'identifier</h2>
             <div className="input-group flex-nowrap">
@@ -16,7 +16,7 @@ function seconnecter(props) {
             </div>
             <br/>
             <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={props.submit}>Se connecter</button>
-                </div>
+        </div>
     )
 }
 

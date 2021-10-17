@@ -13,6 +13,8 @@
     "nodemon": "^2.0.13"
   },
   "dependencies": {
+    "@react-three/cannon": "^4.0.1",
+    "@react-three/drei": "^7.16.2",
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
