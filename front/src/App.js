@@ -96,7 +96,7 @@ function App() {
     }));
     return (
       <mesh ref={ref} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeBufferGeometry attach="geometry" args={[100, 100]} />
+        <planeBufferGeometry attach="geometry" args={[80, 80]} />
         <meshLambertMaterial attach="material" color="lightblue" />
       </mesh>
     );
@@ -164,9 +164,11 @@ function App() {
               <li className="nav-item">
                 <Link to="/exercise" className="nav-link">Créer son exercice</Link>
               </li>
+              {/*
               <li className="nav-item">
                 <Link to="/three" className="nav-link">Three.js</Link>
               </li>
+              */}
             </ul>
           </div>
         </nav>
