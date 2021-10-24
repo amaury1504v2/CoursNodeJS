@@ -199,7 +199,7 @@ function App() {
         
       </div>
       
-      <Canvas>
+      <Canvas style={{height:"300px"}}>
         <OrbitControls />
         <Stars />
         <ambientLight intensity={0.5} />
