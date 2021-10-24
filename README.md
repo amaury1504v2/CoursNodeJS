@@ -15,4 +15,10 @@ Se connecter en créant un compte, ou en utilisant les identifiants suivant :
   
 Email: b  
 Mot de passe: b  
-
+  
+## Three.js  
+  
+Implémentation d'un cube en 3d sur lequel on peut :
+- Changer l'angle de la camera avec la souris
+- Zoomer/Dézoomer avec la molette de la souris
+- Cliquer sur le cube pour le faire sauter
