@@ -22,3 +22,8 @@ Implémentation d'un cube en 3d sur lequel on peut :
 - Changer l'angle de la camera avec la souris
 - Zoomer/Dézoomer avec la molette de la souris
 - Cliquer sur le cube pour le faire sauter
+
+## WebSocket  
+  
+Installation de Socket.io sur le port 3000.  
+Affichage de l'heure et de la date en temps réel.  

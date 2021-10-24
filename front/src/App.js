@@ -5,6 +5,7 @@ import User from './Components/user'
 import SeConnecter from './Components/seconnecter'
 import EditExercise from './Components/edit-exercise'
 import Three from './Components/three'
+import socketIOClient from "socket.io-client";
 
 import './App.css';
 import axios from "axios";
@@ -19,6 +20,8 @@ import {
 import { Canvas } from "react-three-fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import { Physics, usePlane, useBox } from "@react-three/cannon";
+
+const ENDPOINT = "http://localhost:3000";
 
 function App() {
   
@@ -101,6 +104,15 @@ function App() {
       </mesh>
     );
   }
+
+  const [response, setResponse] = useState("");
+
+  useEffect(() => {
+    const socket = socketIOClient(ENDPOINT);
+    socket.on("FromAPI", data => {
+      setResponse(data);
+    });
+  }, []);
 
   if(logged===false) {
     return(
@@ -199,6 +211,12 @@ function App() {
         
       </div>
       
+      <div className="mx-5">
+        <h3>Socket.io</h3>
+        <p>Time is : <time dateTime={response}>{response}</time></p>
+      </div>      
+
+      <h3 className="mx-5">Three.js</h3>
       <Canvas style={{height:"300px"}}>
         <OrbitControls />
         <Stars />
